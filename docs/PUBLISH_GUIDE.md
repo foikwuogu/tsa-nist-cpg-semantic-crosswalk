@@ -2,7 +2,7 @@
 
 **Do not use this guide until `docs/VERIFY_CHECKLIST.md` is fully checked off
 and `python3 scripts/publish_gate.py .` reports zero blockers.** As of this
-build, the gate reports 27 blockers (DRAFT stamps and `[VERIFY]` tags) — that
+build, the gate reports blockers (DRAFT stamps and `[VERIFY]` tags) — that
 is correct and expected; it will not let you push until you have actually
 verified the SP 800-53 text, adjudicated the review queue, and confirmed the
 CSF 2.0 subcategory count. This is deliberate: nothing here carries your name
@@ -16,18 +16,18 @@ A GitHub token is available in this environment. Once the gate is clear:
 
 1. Tell Claude "push to GitHub" and it will run `scripts/publish_github.py`,
    which creates the repository, commits with identity from `AUTHORS.json`,
-   pushes, and tags a `v0.1.0` release — or do it yourself:
+   pushes, and tags a `v1.0.1` release — or do it yourself:
    ```bash
    cd /path/to/project
    git init -b main
    git add -A
-   git commit -m "Initial release: TSA-NIST-CPG semantic crosswalk v0.1.0"
+   git commit -m "Release v1.0.1: verification complete"
    gh repo create tsa-nist-cpg-semantic-crosswalk --public --source=. --remote=origin
    git push -u origin main
-   git tag v0.1.0 -m "v0.1.0 — verified initial release"
-   git push origin v0.1.0
+   git tag v1.0.1 -m "v1.0.1 — verified release"
+   git push origin v1.0.1
    ```
-2. On GitHub: Releases tab -> the `v0.1.0` tag -> "Create release from tag" ->
+2. On GitHub: Releases tab -> the `v1.0.1` tag -> "Create release from tag" ->
    paste this as the release notes:
    > First verified release of the TSA Pipeline Policy-to-Control Crosswalk
    > and human-adjudicated semantic alignment framework. 130 TSA statements
@@ -42,10 +42,10 @@ Simplest path, since the repo is on GitHub:
 1. Log in at zenodo.org with your ORCID (0009-0009-2222-1318).
 2. Account -> GitHub -> flip the switch for
    `tsa-nist-cpg-semantic-crosswalk`.
-3. On GitHub, publish the `v0.1.0` release (step 1 above) — Zenodo archives
+3. On GitHub, publish the `v1.0.1` release (step 1 above) — Zenodo archives
    it automatically and mints a DOI within minutes.
 4. Add the DOI badge Zenodo gives you to the top of `README.md`, and copy
-   the DOI into `CITATION.cff` (replacing the `PENDING` placeholder) and
+   the DOI into `CITATION.cff` and
    into the manuscript's title-page footnote.
 5. Metadata to double check on the Zenodo record before it's final:
    creators = the three names/ORCIDs/affiliations in `AUTHORS.json`; license
@@ -100,7 +100,7 @@ to run from your own machine or CI.
    them — they were built and metadata-checked here, just not uploaded.)
 4. `pip install twine && python -m twine upload dist/*` — username
    `__token__`, password = the API token.
-5. Tag the same version (`v0.1.0`) on the GitHub repo and on the Zenodo
+5. Tag the same version (`v1.0.1`) on the GitHub repo and on the Zenodo
    record for consistency, and add the PyPI badge/link to `pkg/README.md`
    and the root `README.md`.
 6. Optional but recommended given the test suite and docs already exist:
@@ -112,5 +112,5 @@ to run from your own machine or CI.
 ## 5. After every submission
 
 Log it the same day: date, artifact, venue, URL/DOI/tracking number,
-status. Update the README status line (swap "DRAFT" for "Released vN.N,
-DOI: ...") and `CITATION.cff`'s `identifiers` and `repository-code` fields.
+status. Update the README status line and `CITATION.cff`'s `identifiers` and
+`repository-code` fields.

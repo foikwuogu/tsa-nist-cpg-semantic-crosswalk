@@ -1,7 +1,7 @@
 # TSA Pipeline Policy-to-Control Crosswalk & Human-Adjudicated Semantic Alignment Framework
 
-**Status: Released v0.1.0 — author-verified 2026-09-20 (see `docs/VERIFY_CHECKLIST.md`).**
-Version: 0.1.0 · Released: 2026-09-20
+**Status: Released v1.0.1 — author-verified 2026-09-20 (see `docs/VERIFY_CHECKLIST.md`).**
+Version: 1.0.1 · Released: 2026-09-20 · DOI: 10.5281/zenodo.22866885
 
 ## What this is
 
@@ -94,7 +94,7 @@ python3 code/02_extract.py
 python3 code/03_align.py
 python3 code/04_adjudication.py
 python3 code/05_qa.py
-python3 code/06_figures.py --final  # figures are already final as of v0.1.0; omit --final to see the pre-verification watermark
+python3 code/06_figures.py --final  # figures are already final as of v1.0.1; omit --final to see the pre-verification watermark
 python3 code/07_stats.py
 ```
 
@@ -129,7 +129,7 @@ Code: MIT. Data, docs, and manuscript: CC BY 4.0. See `LICENSE`.
 
 ## Citation
 
-See `CITATION.cff`. DOI pending Zenodo deposit.
+See `CITATION.cff`. DOI: https://doi.org/10.5281/zenodo.22866885
 
 ## Maintainer
 
