@@ -1,5 +1,8 @@
 # regulatory-crosswalk
 
+[![PyPI version](https://img.shields.io/pypi/v/regulatory-crosswalk.svg)](https://pypi.org/project/regulatory-crosswalk/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22866885.svg)](https://doi.org/10.5281/zenodo.22866885)
+
 Transparent semantic-similarity scoring, plus a human-adjudication review
 queue, for mapping one regulatory or standards corpus onto another.
 

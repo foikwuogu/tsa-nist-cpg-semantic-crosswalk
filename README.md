@@ -1,5 +1,8 @@
 # TSA Pipeline Policy-to-Control Crosswalk & Human-Adjudicated Semantic Alignment Framework
 
+[![PyPI version](https://img.shields.io/pypi/v/regulatory-crosswalk.svg)](https://pypi.org/project/regulatory-crosswalk/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22866885.svg)](https://doi.org/10.5281/zenodo.22866885)
+
 **Status: Released v1.0.1 — author-verified 2026-09-20 (see `docs/VERIFY_CHECKLIST.md`).**
 Version: 1.0.1 · Released: 2026-09-20 · DOI: 10.5281/zenodo.22866885
 
