@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this dataset, code, or manuscript, please cite it as below."
 title: "TSA Pipeline Policy-to-Control Crosswalk and Human-Adjudicated Semantic Alignment Framework"
-version: "0.1.0-draft"
+version: "0.1.0"
 date-released: "2026-09-20"
 license: "CC-BY-4.0"
 type: dataset
@@ -19,10 +19,10 @@ authors:
     given-names: "Osorachukwu Maurice"
     email: "ayozie_o62237@utpb.edu"
     affiliation: "MSc Computer Science Cybersecurity, University of Texas Permian Basin, Odessa, Texas, USA"
-repository-code: "PENDING — filled in by scripts/publish_github.py at push time"
+repository-code: "https://github.com/foikwuogu/tsa-nist-cpg-semantic-crosswalk"
 identifiers:
   - type: doi
-    value: "PENDING — filled in by scripts/zenodo_deposit.py at deposit time"
+    value: "PENDING — filled in once the Zenodo deposit completes"
 keywords:
   - semantic text alignment
   - human adjudication

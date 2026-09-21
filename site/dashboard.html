@@ -40,6 +40,8 @@
   header.top{display:flex; flex-wrap:wrap; gap:16px 24px; align-items:flex-end; justify-content:space-between; margin-bottom:28px}
   .titleblock h1{font-size:clamp(28px,4vw,38px); letter-spacing:-.01em}
   .titleblock p{margin:6px 0 0; color:var(--muted); max-width:56ch; font-size:14.5px}
+  .status-badge.released{background:var(--good-bg); color:var(--good); border-color:color-mix(in srgb, var(--good) 35%, transparent)}
+  .status-badge.released .dot{background:var(--good)}
   .status-badge{
     display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600;
     padding:5px 11px; border-radius:999px; background:var(--warn-bg); color:var(--warn);
@@ -143,7 +145,7 @@
       <p>TSA Pipeline Security Guidelines scored against NIST CSF&nbsp;2.0, NIST SP&nbsp;800-53, and CISA CPG&nbsp;v1.0.1 &mdash; semantic candidates on the left, the human adjudication queue on the right.</p>
     </div>
     <div>
-      <span class="status-badge"><span class="dot"></span>DRAFT &mdash; pending author verification</span>
+      <span class="status-badge released"><span class="dot"></span>Released v0.1.0 &mdash; author-verified 2026-09-20</span>
       <div class="sourceline">Generated 2026-09-20 &middot; sources in <span class="mono">data/raw/PROVENANCE.txt</span></div>
     </div>
   </header>
@@ -232,7 +234,7 @@
         DOI pending Zenodo deposit.
       </div>
     </div>
-    <div>This is a data view of a DRAFT project. Nothing here is a finished crosswalk decision until a human adjudicator fills in the review queue &mdash; see <span class="mono">docs/VERIFY_CHECKLIST.md</span>.</div>
+    <div>This project's review queue has been fully adjudicated by the author (see <span class="mono">docs/VERIFY_CHECKLIST.md</span>) &mdash; the <span class="mono">adjudicated_alignment_type</span> column above is the citable result; <span class="mono">tentative_alignment_type</span> is the machine's superseded first pass.</div>
   </footer>
 </div>
 

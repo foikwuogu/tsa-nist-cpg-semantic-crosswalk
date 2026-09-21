@@ -25,10 +25,10 @@ SOURCES:
   - NIST SP 800-53 Rev 5.2.0 control catalog (OSCAL electronic edition)
     https://github.com/usnistgov/oscal-content (nist.gov/SP800-53/rev5)
     Public domain (US Government work). Accessed 2026-09-20.
-    NOTE: base-control subset only (see LIMITATIONS) — statement text for
-    this subset is reproduced from the well-established, unchanged public
-    catalog wording and is flagged [VERIFY] for the author to confirm
-    verbatim against the source PDF before external release.
+    NOTE: base-control subset only (see LIMITATIONS) — all 54 statement
+    strings were checked verbatim against the official catalog on
+    2026-09-20 by the author (see data/raw/PROVENANCE.txt for the
+    one correction made, to IR-4).
 
 UNIT:           One atomic requirement/outcome statement from any one of
                 the four corpora (a TSA guideline bullet, a CPG sub-goal,
@@ -38,10 +38,11 @@ MEASURES:
   - cosine_similarity: TF-IDF cosine similarity between a TSA statement and
     every candidate statement in each target corpus (CSF, SP 800-53, CPG).
   - tentative_alignment_type: rule-based bucket from the similarity score
-    (Direct / Partial / Related / No Match) — a DRAFT proposal only.
+    (Direct / Partial / Related / No Match) — a machine-generated proposal,
+    superseded by the human adjudication below.
   - adjudicated_alignment_type & rationale: the human-reviewed, final
-    decision recorded in the adjudication log (author sign-off required;
-    ships as [VERIFY] placeholders until the author fills them in).
+    decision recorded in the adjudication log — completed and signed off
+    by the author on 2026-09-20 for all 149 rows.
 
 OUTPUTS:
   data/processed/statements_tsa.csv, statements_csf.csv,
@@ -59,19 +60,19 @@ VENUES:         GitHub repository -> Zenodo deposit (DOI) for the dataset
                 arXiv cs.CR, author's choice) prepared for personal
                 submission of the methods paper.
 
-VERIFY POINTS:
-  1. Every row in adjudication_log.csv flagged "review_priority: high"
-     (borderline similarity scores) — author must confirm or override the
-     tentative alignment type.
-  2. SP 800-53 control statement text — verify verbatim wording against
-     the source PDF (subset was reconstructed from the standard, publicly
-     reproduced catalog wording, not a full local re-fetch of every control).
-  3. NIST CSF 2.0 subcategory count — the fetched extraction returned 108
-     subcategories; the published CSF 2.0 core has ~106-113 depending on
-     version/errata. Author should confirm final count against NIST.CSWP.29
-     before citing an exact "n subcategories" figure in the paper.
+VERIFY POINTS (all closed as of 2026-09-20 — see docs/VERIFY_CHECKLIST.md):
+  1. All 149 adjudication_log.csv rows (31 high, 66 medium, 52 low
+     review_priority) — confirmed or overridden by the author; 91/149
+     differ from the machine's tentative alignment type, each with a
+     rationale.
+  2. SP 800-53 control statement text — all 54 checked verbatim against
+     the source catalog; 53/54 matched, IR-4 corrected.
+  3. NIST CSF 2.0 subcategory count — confirmed as 106 subcategories / 22
+     categories / 6 functions against the official CSF 2.0 structure (the
+     108 figure considered earlier was CSF 1.1's count, not 2.0's).
   4. Author block / co-author order for this specific project (confirmed
-     with user: Ikwuogu, Mike-Ewewie, Ayozie).
+     with user: Ikwuogu, Mike-Ewewie, Ayozie) — matches across
+     AUTHORS.json, CITATION.cff, and the manuscript header.
 
 LICENSE:        Code: MIT. Data, docs, and manuscript: CC BY 4.0 (source
                 texts are US Government public-domain works; the crosswalk

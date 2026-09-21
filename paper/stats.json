@@ -28,8 +28,8 @@
       "partial": 14,
       "related": 42,
       "no_match": 72,
-      "mean_cosine_similarity": 0.0955,
-      "max_cosine_similarity": 0.3852
+      "mean_cosine_similarity": 0.0957,
+      "max_cosine_similarity": 0.3875
     },
     "CPG1.0.1": {
       "n_tsa_statements": 130,

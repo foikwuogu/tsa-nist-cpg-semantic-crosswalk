@@ -1,7 +1,7 @@
 # TSA Pipeline Policy-to-Control Crosswalk & Human-Adjudicated Semantic Alignment Framework
 
-**Status: DRAFT — pending author verification (see `docs/VERIFY_CHECKLIST.md`). Not yet released.**
-Version: 0.1.0-draft · Last updated: 2026-09-20
+**Status: Released v0.1.0 — author-verified 2026-09-20 (see `docs/VERIFY_CHECKLIST.md`).**
+Version: 0.1.0 · Released: 2026-09-20
 
 ## What this is
 
@@ -73,7 +73,7 @@ code/
   03_align.py               TF-IDF cosine similarity -> candidate crosswalk
   04_adjudication.py        candidate crosswalk -> human review queue
   05_qa.py                  QA report
-  06_figures.py             manuscript figures (--final removes DRAFT stamp)
+  06_figures.py             manuscript figures (--final removes the draft-status watermark)
   07_stats.py               paper/stats.json (every number the paper quotes)
   provenance.py             fetch-record logger
 data/
@@ -94,7 +94,7 @@ python3 code/02_extract.py
 python3 code/03_align.py
 python3 code/04_adjudication.py
 python3 code/05_qa.py
-python3 code/06_figures.py        # add --final once verified, to drop the DRAFT stamp
+python3 code/06_figures.py --final  # figures are already final as of v0.1.0; omit --final to see the pre-verification watermark
 python3 code/07_stats.py
 ```
 
@@ -116,9 +116,10 @@ All four are U.S. Government works in the public domain.
 ## Limitations
 
 See `docs/LIMITATIONS.md`. Headline items: the SP 800-53 corpus is a curated
-base-control subset (not the full ~1,000-control catalog) and every one of
-its statement strings is flagged `[VERIFY]`; alignment scoring uses TF-IDF
-lexical similarity, not a semantic embedding model, and this measurably
+base-control subset (not the full ~1,000-control catalog) — all 54
+statements were checked against the official catalog on 2026-09-20 (see
+`data/raw/PROVENANCE.txt`); alignment scoring uses TF-IDF lexical
+similarity, not a semantic embedding model, and this measurably
 under-detects true matches that are phrased differently (see the paper's
 discussion of the "No Match" rate).
 

@@ -9,10 +9,10 @@ secrets); the analytic half below cannot be scripted.
 
 ## 1. Reproduce the pipeline
 
-- [ ] `pip install pandas scikit-learn matplotlib` on a clean environment
-      (your own machine — not done here; this session's sandbox already
-      had these installed, which isn't the same as a clean-environment
-      reproduction)
+- [x] `pip install pandas scikit-learn matplotlib` on a clean environment
+      — **done 2026-09-20** in a fresh temporary virtual environment on
+      the author's machine (`pandas 3.0.6`, `scikit-learn 1.9.1`,
+      `matplotlib 3.11.2`).
 - [x] Run `code/02_extract.py` through `code/07_stats.py` in order —
       **re-run 2026-09-20** after the SP 800-53/CSF 2.0 corrections; all
       scripts ran cleanly end to end.
