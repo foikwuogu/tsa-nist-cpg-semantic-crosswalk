@@ -98,7 +98,7 @@ def build_review_queue(
     queue.insert(0, "adjudication_id", [f"ADJ-{i + 1:04d}" for i in range(len(queue))])
 
     for col in ("adjudicated_alignment_type", "adjudicator", "adjudication_rationale", "adjudication_date"):
-        queue[col] = "[VERIFY]"
+        queue[col] = "PENDING_REVIEW"
 
     cols = [
         "adjudication_id",

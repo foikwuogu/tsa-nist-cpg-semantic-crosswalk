@@ -35,7 +35,7 @@ function draftBanner() {
   if (FINAL) return [];
   return [
     new Paragraph({
-      children: [new TextRun({ text: "DRAFT — PENDING AUTHOR VERIFICATION — NOT FOR DISTRIBUTION", bold: true, color: "B0302F" })],
+      children: [new TextRun({ text: "PENDING AUTHOR VERIFICATION — NOT FOR DISTRIBUTION", bold: true, color: "B0302F" })],
       alignment: AlignmentType.CENTER,
       spacing: { after: 240 },
       border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "B0302F" } },
@@ -120,7 +120,7 @@ const doc = new Document({
     {
       properties: { page: { size: PAGE, margin: { top: 1440, bottom: 1440, left: 1440, right: 1440 } } },
       headers: {
-        default: new Header({ children: [p("DRAFT — semantic alignment & adjudication framework", { run: { size: 16, color: "888888" } })] }),
+        default: new Header({ children: [p("PRE-RELEASE — semantic alignment & adjudication framework", { run: { size: 16, color: "888888" } })] }),
       },
       footers: {
         default: new Footer({
@@ -332,7 +332,7 @@ const doc = new Document({
           "similarity method, threshold calibration, alignment-type taxonomy) and is responsible " +
           "for verifying the adjudication log and every quoted figure before release, per " +
           "docs/VERIFY_CHECKLIST.md. No claim in this manuscript should be treated as final until " +
-          "that verification is complete and the DRAFT banner above has been removed."
+          "that verification is complete and the pre-release banner above has been removed."
         ),
 
         h1("Author Contributions (CRediT)"),

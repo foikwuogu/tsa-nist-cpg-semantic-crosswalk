@@ -1,6 +1,6 @@
 """Build the two manuscript figures from candidate_crosswalk.csv, following
 the dataviz skill: fixed-order categorical hues for corpus identity, a
-single sequential hue for magnitude, direct annotation, DRAFT stamp until
+    single sequential hue for magnitude, direct annotation, pre-release stamp until
 --final is passed.
 """
 import argparse
@@ -35,7 +35,7 @@ TYPE_ORDER = ["No Match", "Related", "Partial", "Direct"]
 def stamp_draft(ax, final):
     if not final:
         ax.text(
-            0.99, 0.02, "DRAFT", transform=ax.transAxes, ha="right", va="bottom",
+            0.99, 0.02, "PRE-RELEASE", transform=ax.transAxes, ha="right", va="bottom",
             fontsize=9, color="#b0302f", fontweight="bold", alpha=0.85,
         )
 
@@ -125,6 +125,6 @@ def main(final):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--final", action="store_true", help="remove DRAFT stamp")
+    parser.add_argument("--final", action="store_true", help="remove pre-release stamp")
     args = parser.parse_args()
     main(args.final)

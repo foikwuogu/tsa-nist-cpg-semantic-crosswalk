@@ -18,7 +18,7 @@ class TestBuildReviewQueue(unittest.TestCase):
         queue = build_review_queue(self.candidates, no_match_sample_size=2)
         for col in ("adjudicated_alignment_type", "adjudicator", "adjudication_rationale", "adjudication_date"):
             self.assertIn(col, queue.columns)
-            self.assertTrue((queue[col] == "[VERIFY]").all())
+            self.assertTrue((queue[col] == "PENDING_REVIEW").all())
 
     def test_no_match_rows_are_sampled_not_all_included(self):
         queue = build_review_queue(self.candidates, no_match_sample_size=1)

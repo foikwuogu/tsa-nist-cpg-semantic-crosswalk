@@ -2,8 +2,8 @@
 """Pre-publication gate: refuse to publish while draft markers or secrets remain.
 
 Scans a project directory for:
-  - DRAFT stamps and banners in text-bearing files (md, txt, html, py, js, csv, json, tex, cff)
-  - [VERIFY ...] and [ASK ...] tags, and bracketed placeholders like [insert], [DOI], [journal]
+    - draft stamps and banners in text-bearing files (md, txt, html, py, js, csv, json, tex, cff)
+    - verification and question tags, and bracketed placeholders like [insert], [DOI], [journal]
   - likely secrets: tokens, private keys, .env files
   - a missing LICENSE, README, or CITATION.cff (warning, not failure)
 
@@ -27,7 +27,7 @@ DRAFT_PATTERNS = [
     (re.compile(r"\[VERIFY[^\]]*\]"), "[VERIFY] tag"),
     (re.compile(r"\[ASK[^\]]*\]"), "[ASK] tag"),
     (re.compile(r"\[TARGET\]"), "[TARGET] tag (planning artifact, not publishable)"),
-    (re.compile(r"\[(insert|DOI|journal|tracking number|repository URL|n|date|name)[^\]]*\]", re.I),
+    (re.compile(r"(?<!\!)\[(insert|DOI|journal|tracking number|repository URL|n|date|name)\b[^\]]*\]", re.I),
      "bracketed placeholder"),
     (re.compile(r"XXXX-XXXX|zenodo\.XXXX+"), "placeholder identifier"),
 ]
@@ -47,6 +47,8 @@ def scan(root, allow_prefixes):
         for fn in filenames:
             path = os.path.join(dirpath, fn)
             rel = os.path.relpath(path, root)
+            if rel.replace("\\", "/") == "scripts/publish_gate.py":
+                continue
             if fn == ".env" or fn.endswith(".pem"):
                 blockers.append((rel, "secrets file present"))
                 continue

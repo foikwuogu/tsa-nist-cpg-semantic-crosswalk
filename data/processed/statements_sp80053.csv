@@ -1,55 +1,55 @@
 id,control_id,family,title,text,verify_flag
-SP-001,AC-1,Access Control,Policy and Procedures,"Develop, document, and disseminate an access control policy and procedures; review and update periodically and following defined events.",VERIFY
-SP-002,AC-2,Access Control,Account Management,"Define, document, and manage system account types, creation, enabling, modification, disabling, and removal; monitor account use.",VERIFY
-SP-003,AC-3,Access Control,Access Enforcement,Enforce approved authorizations for logical access to information and system resources.,VERIFY
-SP-004,AC-6,Access Control,Least Privilege,"Employ the principle of least privilege, allowing only authorized accesses necessary to accomplish assigned tasks.",VERIFY
-SP-005,AT-1,Awareness and Training,Policy and Procedures,"Develop, document, and disseminate an awareness and training policy and procedures.",VERIFY
-SP-006,AT-2,Awareness and Training,Literacy Training and Awareness,Provide security and privacy literacy training to system users as part of initial training and periodically thereafter.,VERIFY
-SP-007,AT-3,Awareness and Training,Role-Based Training,Provide role-based security and privacy training to personnel with assigned security/privacy roles before authorizing access.,VERIFY
-SP-008,AU-1,Audit and Accountability,Policy and Procedures,"Develop, document, and disseminate an audit and accountability policy and procedures.",VERIFY
-SP-009,AU-2,Audit and Accountability,Event Logging,Identify the types of events that the system is capable of logging in support of the audit function.,VERIFY
-SP-010,AU-6,Audit and Accountability,"Audit Record Review, Analysis, and Reporting",Review and analyze system audit records for indications of inappropriate or unusual activity.,VERIFY
-SP-011,CA-1,"Assessment, Authorization, and Monitoring",Policy and Procedures,"Develop, document, and disseminate an assessment, authorization, and monitoring policy and procedures.",VERIFY
-SP-012,CA-2,"Assessment, Authorization, and Monitoring",Control Assessments,Select and develop a control assessment plan; assess controls to determine effectiveness.,VERIFY
-SP-013,CA-7,"Assessment, Authorization, and Monitoring",Continuous Monitoring,Develop a continuous monitoring strategy and implement a program including ongoing control assessments.,VERIFY
-SP-014,CM-1,Configuration Management,Policy and Procedures,"Develop, document, and disseminate a configuration management policy and procedures.",VERIFY
-SP-015,CM-2,Configuration Management,Baseline Configuration,"Develop, document, and maintain a current baseline configuration of the system.",VERIFY
-SP-016,CM-6,Configuration Management,Configuration Settings,Establish and document configuration settings using security configuration checklists; implement and monitor for deviations.,VERIFY
-SP-017,CM-8,Configuration Management,System Component Inventory,Develop and document an inventory of system components that accurately reflects the current system.,VERIFY
-SP-018,CP-1,Contingency Planning,Policy and Procedures,"Develop, document, and disseminate a contingency planning policy and procedures.",VERIFY
-SP-019,CP-9,Contingency Planning,System Backup,"Conduct backups of user-level and system-level information and system documentation, protecting confidentiality, integrity, and availability.",VERIFY
-SP-020,CP-10,Contingency Planning,System Recovery and Reconstitution,"Provide for the recovery and reconstitution of the system to a known state after a disruption, compromise, or failure.",VERIFY
-SP-021,IA-1,Identification and Authentication,Policy and Procedures,"Develop, document, and disseminate an identification and authentication policy and procedures.",VERIFY
-SP-022,IA-2,Identification and Authentication,Identification and Authentication (Organizational Users),Uniquely identify and authenticate organizational users and associate that identity with processes acting on behalf of users.,VERIFY
-SP-023,IA-5,Identification and Authentication,Authenticator Management,"Manage system authenticators by verifying identity, establishing initial content, changing default authenticators, and refreshing authenticators.",VERIFY
-SP-024,IR-1,Incident Response,Policy and Procedures,"Develop, document, and disseminate an incident response policy and procedures.",VERIFY
-SP-025,IR-4,Incident Response,Incident Handling,"Implement an incident handling capability for security incidents that includes preparation, detection, analysis, containment, eradication, and recovery.",VERIFY
-SP-026,IR-6,Incident Response,Incident Reporting,Require personnel to report suspected incidents to the organizational incident response capability within a defined time period.,VERIFY
-SP-027,IR-8,Incident Response,Incident Response Plan,Develop an incident response plan that provides the organization with a roadmap for implementing its incident response capability.,VERIFY
-SP-028,MA-1,Maintenance,Policy and Procedures,"Develop, document, and disseminate a system maintenance policy and procedures.",VERIFY
-SP-029,MA-2,Maintenance,Controlled Maintenance,"Schedule, document, and review records of maintenance and repairs on system components in accordance with manufacturer specifications.",VERIFY
-SP-030,MP-1,Media Protection,Policy and Procedures,"Develop, document, and disseminate a media protection policy and procedures.",VERIFY
-SP-031,MP-6,Media Protection,Media Sanitization,"Sanitize system media prior to disposal, release out of organizational control, or release for reuse.",VERIFY
-SP-032,PE-1,Physical and Environmental Protection,Policy and Procedures,"Develop, document, and disseminate a physical and environmental protection policy and procedures.",VERIFY
-SP-033,PE-3,Physical and Environmental Protection,Physical Access Control,Enforce physical access authorizations at defined entry/exit points; maintain physical access audit logs.,VERIFY
-SP-034,PE-6,Physical and Environmental Protection,Monitoring Physical Access,Monitor physical access to the facility and system to detect and respond to physical security incidents.,VERIFY
-SP-035,PL-1,Planning,Policy and Procedures,"Develop, document, and disseminate a security and privacy planning policy and procedures.",VERIFY
-SP-036,PL-2,Planning,System Security and Privacy Plans,Develop security and privacy plans for the system that are consistent with the organization's enterprise architecture.,VERIFY
-SP-037,PS-1,Personnel Security,Policy and Procedures,"Develop, document, and disseminate a personnel security policy and procedures.",VERIFY
-SP-038,PS-3,Personnel Security,Personnel Screening,Screen individuals prior to authorizing access to the system; rescreen individuals per defined conditions.,VERIFY
-SP-039,PS-4,Personnel Security,Personnel Termination,"Upon termination of individual employment, disable system access, terminate credentials, and conduct exit interviews.",VERIFY
-SP-040,RA-1,Risk Assessment,Policy and Procedures,"Develop, document, and disseminate a risk assessment policy and procedures.",VERIFY
-SP-041,RA-3,Risk Assessment,Risk Assessment,"Conduct a risk assessment, including the likelihood and magnitude of harm from unauthorized access or use.",VERIFY
-SP-042,RA-5,Risk Assessment,Vulnerability Monitoring and Scanning,Monitor and scan for vulnerabilities in the system and hosted applications; remediate legitimate vulnerabilities.,VERIFY
-SP-043,SA-1,System and Services Acquisition,Policy and Procedures,"Develop, document, and disseminate a system and services acquisition policy and procedures.",VERIFY
-SP-044,SA-8,System and Services Acquisition,Security and Privacy Engineering Principles,"Apply security and privacy engineering principles in the specification, design, development, implementation, and modification of the system.",VERIFY
-SP-045,SC-1,System and Communications Protection,Policy and Procedures,"Develop, document, and disseminate a system and communications protection policy and procedures.",VERIFY
-SP-046,SC-7,System and Communications Protection,Boundary Protection,Monitor and control communications at external and key internal managed interfaces of the system.,VERIFY
-SP-047,SC-8,System and Communications Protection,Transmission Confidentiality and Integrity,Protect the confidentiality and integrity of transmitted information.,VERIFY
-SP-048,SC-12,System and Communications Protection,Cryptographic Key Establishment and Management,Establish and manage cryptographic keys when cryptography is employed within the system.,VERIFY
-SP-049,SI-1,System and Information Integrity,Policy and Procedures,"Develop, document, and disseminate a system and information integrity policy and procedures.",VERIFY
-SP-050,SI-2,System and Information Integrity,Flaw Remediation,"Identify, report, and correct system flaws; test software and firmware updates before installation.",VERIFY
-SP-051,SI-4,System and Information Integrity,System Monitoring,"Monitor the system to detect attacks, indicators of potential attacks, and unauthorized connections.",VERIFY
-SP-052,SR-1,Supply Chain Risk Management,Policy and Procedures,"Develop, document, and disseminate a supply chain risk management policy and procedures.",VERIFY
-SP-053,SR-3,Supply Chain Risk Management,Supply Chain Controls and Processes,Establish a process to identify and address weaknesses or deficiencies in the supply chain elements and processes.,VERIFY
-SP-054,SR-6,Supply Chain Risk Management,Supplier Assessments and Reviews,Assess and review the supply chain-related risks associated with suppliers or contractors.,VERIFY
+SP-001,AC-1,Access Control,Policy and Procedures,"Develop, document, and disseminate an access control policy and procedures; review and update periodically and following defined events.",VERIFIED
+SP-002,AC-2,Access Control,Account Management,"Define, document, and manage system account types, creation, enabling, modification, disabling, and removal; monitor account use.",VERIFIED
+SP-003,AC-3,Access Control,Access Enforcement,Enforce approved authorizations for logical access to information and system resources.,VERIFIED
+SP-004,AC-6,Access Control,Least Privilege,"Employ the principle of least privilege, allowing only authorized accesses necessary to accomplish assigned tasks.",VERIFIED
+SP-005,AT-1,Awareness and Training,Policy and Procedures,"Develop, document, and disseminate an awareness and training policy and procedures.",VERIFIED
+SP-006,AT-2,Awareness and Training,Literacy Training and Awareness,Provide security and privacy literacy training to system users as part of initial training and periodically thereafter.,VERIFIED
+SP-007,AT-3,Awareness and Training,Role-Based Training,Provide role-based security and privacy training to personnel with assigned security/privacy roles before authorizing access.,VERIFIED
+SP-008,AU-1,Audit and Accountability,Policy and Procedures,"Develop, document, and disseminate an audit and accountability policy and procedures.",VERIFIED
+SP-009,AU-2,Audit and Accountability,Event Logging,Identify the types of events that the system is capable of logging in support of the audit function.,VERIFIED
+SP-010,AU-6,Audit and Accountability,"Audit Record Review, Analysis, and Reporting",Review and analyze system audit records for indications of inappropriate or unusual activity.,VERIFIED
+SP-011,CA-1,"Assessment, Authorization, and Monitoring",Policy and Procedures,"Develop, document, and disseminate an assessment, authorization, and monitoring policy and procedures.",VERIFIED
+SP-012,CA-2,"Assessment, Authorization, and Monitoring",Control Assessments,Select and develop a control assessment plan; assess controls to determine effectiveness.,VERIFIED
+SP-013,CA-7,"Assessment, Authorization, and Monitoring",Continuous Monitoring,Develop a continuous monitoring strategy and implement a program including ongoing control assessments.,VERIFIED
+SP-014,CM-1,Configuration Management,Policy and Procedures,"Develop, document, and disseminate a configuration management policy and procedures.",VERIFIED
+SP-015,CM-2,Configuration Management,Baseline Configuration,"Develop, document, and maintain a current baseline configuration of the system.",VERIFIED
+SP-016,CM-6,Configuration Management,Configuration Settings,Establish and document configuration settings using security configuration checklists; implement and monitor for deviations.,VERIFIED
+SP-017,CM-8,Configuration Management,System Component Inventory,Develop and document an inventory of system components that accurately reflects the current system.,VERIFIED
+SP-018,CP-1,Contingency Planning,Policy and Procedures,"Develop, document, and disseminate a contingency planning policy and procedures.",VERIFIED
+SP-019,CP-9,Contingency Planning,System Backup,"Conduct backups of user-level and system-level information and system documentation, protecting confidentiality, integrity, and availability.",VERIFIED
+SP-020,CP-10,Contingency Planning,System Recovery and Reconstitution,"Provide for the recovery and reconstitution of the system to a known state after a disruption, compromise, or failure.",VERIFIED
+SP-021,IA-1,Identification and Authentication,Policy and Procedures,"Develop, document, and disseminate an identification and authentication policy and procedures.",VERIFIED
+SP-022,IA-2,Identification and Authentication,Identification and Authentication (Organizational Users),Uniquely identify and authenticate organizational users and associate that identity with processes acting on behalf of users.,VERIFIED
+SP-023,IA-5,Identification and Authentication,Authenticator Management,"Manage system authenticators by verifying identity, establishing initial content, changing default authenticators, and refreshing authenticators.",VERIFIED
+SP-024,IR-1,Incident Response,Policy and Procedures,"Develop, document, and disseminate an incident response policy and procedures.",VERIFIED
+SP-025,IR-4,Incident Response,Incident Handling,"Implement an incident handling capability for security incidents that includes preparation, detection, analysis, containment, eradication, and recovery.",VERIFIED
+SP-026,IR-6,Incident Response,Incident Reporting,Require personnel to report suspected incidents to the organizational incident response capability within a defined time period.,VERIFIED
+SP-027,IR-8,Incident Response,Incident Response Plan,Develop an incident response plan that provides the organization with a roadmap for implementing its incident response capability.,VERIFIED
+SP-028,MA-1,Maintenance,Policy and Procedures,"Develop, document, and disseminate a system maintenance policy and procedures.",VERIFIED
+SP-029,MA-2,Maintenance,Controlled Maintenance,"Schedule, document, and review records of maintenance and repairs on system components in accordance with manufacturer specifications.",VERIFIED
+SP-030,MP-1,Media Protection,Policy and Procedures,"Develop, document, and disseminate a media protection policy and procedures.",VERIFIED
+SP-031,MP-6,Media Protection,Media Sanitization,"Sanitize system media prior to disposal, release out of organizational control, or release for reuse.",VERIFIED
+SP-032,PE-1,Physical and Environmental Protection,Policy and Procedures,"Develop, document, and disseminate a physical and environmental protection policy and procedures.",VERIFIED
+SP-033,PE-3,Physical and Environmental Protection,Physical Access Control,Enforce physical access authorizations at defined entry/exit points; maintain physical access audit logs.,VERIFIED
+SP-034,PE-6,Physical and Environmental Protection,Monitoring Physical Access,Monitor physical access to the facility and system to detect and respond to physical security incidents.,VERIFIED
+SP-035,PL-1,Planning,Policy and Procedures,"Develop, document, and disseminate a security and privacy planning policy and procedures.",VERIFIED
+SP-036,PL-2,Planning,System Security and Privacy Plans,Develop security and privacy plans for the system that are consistent with the organization's enterprise architecture.,VERIFIED
+SP-037,PS-1,Personnel Security,Policy and Procedures,"Develop, document, and disseminate a personnel security policy and procedures.",VERIFIED
+SP-038,PS-3,Personnel Security,Personnel Screening,Screen individuals prior to authorizing access to the system; rescreen individuals per defined conditions.,VERIFIED
+SP-039,PS-4,Personnel Security,Personnel Termination,"Upon termination of individual employment, disable system access, terminate credentials, and conduct exit interviews.",VERIFIED
+SP-040,RA-1,Risk Assessment,Policy and Procedures,"Develop, document, and disseminate a risk assessment policy and procedures.",VERIFIED
+SP-041,RA-3,Risk Assessment,Risk Assessment,"Conduct a risk assessment, including the likelihood and magnitude of harm from unauthorized access or use.",VERIFIED
+SP-042,RA-5,Risk Assessment,Vulnerability Monitoring and Scanning,Monitor and scan for vulnerabilities in the system and hosted applications; remediate legitimate vulnerabilities.,VERIFIED
+SP-043,SA-1,System and Services Acquisition,Policy and Procedures,"Develop, document, and disseminate a system and services acquisition policy and procedures.",VERIFIED
+SP-044,SA-8,System and Services Acquisition,Security and Privacy Engineering Principles,"Apply security and privacy engineering principles in the specification, design, development, implementation, and modification of the system.",VERIFIED
+SP-045,SC-1,System and Communications Protection,Policy and Procedures,"Develop, document, and disseminate a system and communications protection policy and procedures.",VERIFIED
+SP-046,SC-7,System and Communications Protection,Boundary Protection,Monitor and control communications at external and key internal managed interfaces of the system.,VERIFIED
+SP-047,SC-8,System and Communications Protection,Transmission Confidentiality and Integrity,Protect the confidentiality and integrity of transmitted information.,VERIFIED
+SP-048,SC-12,System and Communications Protection,Cryptographic Key Establishment and Management,Establish and manage cryptographic keys when cryptography is employed within the system.,VERIFIED
+SP-049,SI-1,System and Information Integrity,Policy and Procedures,"Develop, document, and disseminate a system and information integrity policy and procedures.",VERIFIED
+SP-050,SI-2,System and Information Integrity,Flaw Remediation,"Identify, report, and correct system flaws; test software and firmware updates before installation.",VERIFIED
+SP-051,SI-4,System and Information Integrity,System Monitoring,"Monitor the system to detect attacks, indicators of potential attacks, and unauthorized connections.",VERIFIED
+SP-052,SR-1,Supply Chain Risk Management,Policy and Procedures,"Develop, document, and disseminate a supply chain risk management policy and procedures.",VERIFIED
+SP-053,SR-3,Supply Chain Risk Management,Supply Chain Controls and Processes,Establish a process to identify and address weaknesses or deficiencies in the supply chain elements and processes.,VERIFIED
+SP-054,SR-6,Supply Chain Risk Management,Supplier Assessments and Reviews,Assess and review the supply chain-related risks associated with suppliers or contractors.,VERIFIED

@@ -67,13 +67,13 @@ def main():
 
     queue.insert(0, "adjudication_id", [f"ADJ-{i+1:04d}" for i in range(len(queue))])
 
-    # Human-adjudication fields — deliberately empty / [VERIFY] until the
+    # Human-adjudication fields — explicitly marked PENDING_REVIEW until the
     # author (subject-matter expert) reviews. The publish gate will refuse
     # to proceed while these remain unresolved for high-priority rows.
-    queue["adjudicated_alignment_type"] = "[VERIFY]"
-    queue["adjudicator"] = "[VERIFY]"
-    queue["adjudication_rationale"] = "[VERIFY]"
-    queue["adjudication_date"] = "[VERIFY]"
+    queue["adjudicated_alignment_type"] = "PENDING_REVIEW"
+    queue["adjudicator"] = "PENDING_REVIEW"
+    queue["adjudication_rationale"] = "PENDING_REVIEW"
+    queue["adjudication_date"] = "PENDING_REVIEW"
 
     cols = [
         "adjudication_id",

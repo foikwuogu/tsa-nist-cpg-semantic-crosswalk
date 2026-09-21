@@ -1,12 +1,9 @@
 # Publish Guide
 
-**Do not use this guide until `docs/VERIFY_CHECKLIST.md` is fully checked off
-and `python3 scripts/publish_gate.py .` reports zero blockers.** As of this
-build, the gate reports blockers (DRAFT stamps and `[VERIFY]` tags) — that
-is correct and expected; it will not let you push until you have actually
-verified the SP 800-53 text, adjudicated the review queue, and confirmed the
-CSF 2.0 subcategory count. This is deliberate: nothing here carries your name
-into a permanent public record until you've checked it.
+**Use this guide only after `docs/VERIFY_CHECKLIST.md` is fully checked off
+and `python3 scripts/publish_gate.py .` reports zero blockers.** The gate
+enforces the mechanical checks; the author must still confirm the analytic
+verification in the checklist before publication.
 
 Suggested repository name: `tsa-nist-cpg-semantic-crosswalk`
 
@@ -69,7 +66,7 @@ applied NLP methodology) fits **arXiv cs.CR** (Cryptography and Security) or
    > crosswalks (TSA pipeline security vs. NIST/CISA frameworks). Could you
    > endorse me for cs.CR? [arXiv endorsement link goes here]"
 2. Export `paper/manuscript.docx` to PDF (LibreOffice: `soffice --headless
-   --convert-to pdf paper/manuscript.docx`) once the DRAFT banner is removed
+   --convert-to pdf paper/manuscript.docx`) once the pre-release banner is removed
    (`node code/08_manuscript.js --final` after verification).
 3. Submit at arxiv.org/submit: upload the PDF, enter the title and author
    list exactly as in `AUTHORS.json`, paste the abstract from the

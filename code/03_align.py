@@ -1,7 +1,7 @@
 """Semantic alignment: score every TSA statement against every candidate
 statement in each target corpus (CSF, SP 800-53, CPG) with TF-IDF cosine
 similarity, then keep the top-k candidates per (TSA statement, target
-corpus) pair as the DRAFT crosswalk.
+corpus) pair as the preliminary crosswalk.
 
 This is the "AI-assisted" half of the framework: a transparent, reproducible
 scoring pass. It is not the adjudication itself — 04_adjudication.py turns
@@ -19,14 +19,14 @@ OUT = os.path.join(os.path.dirname(__file__), "..", "data", "processed")
 TOP_K = 3
 
 # Rule-based bucketing thresholds for the tentative alignment type.
-# These are DRAFT heuristics the human adjudicator can override; they are
+# These are working heuristics the human adjudicator can override; they are
 # documented here (not hidden in a black box) precisely so they can be
 # challenged during verification. Calibrated empirically against this
 # corpus's TF-IDF cosine score distribution (see qa_report.txt): short,
 # differently-worded regulatory statements rarely exceed ~0.35-0.40 cosine
 # similarity even for genuinely equivalent requirements, so thresholds are
 # set relative to the observed distribution rather than to an arbitrary
-# absolute value. [VERIFY] the author should sanity-check these cut points
+# absolute value. The author should sanity-check these cut points
 # against the labeled spot-check sample in the QA report.
 THRESH_DIRECT = 0.30
 THRESH_PARTIAL = 0.18

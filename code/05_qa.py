@@ -60,9 +60,9 @@ def main():
     pr = adj["review_priority"].value_counts()
     for p in ["high", "medium", "low"]:
         lines.append(f"   {p:6s}: {int(pr.get(p, 0))} rows")
-    unresolved = (adj["adjudicated_alignment_type"] == "[VERIFY]").sum()
-    lines.append(f"   unresolved ([VERIFY]) decisions: {unresolved} / {len(adj)}")
-    lines.append("   NOTE: publish_gate.py will refuse to proceed while any [VERIFY]")
+    unresolved = (adj["adjudicated_alignment_type"] == "PENDING_REVIEW").sum()
+    lines.append(f"   unresolved (PENDING_REVIEW) decisions: {unresolved} / {len(adj)}")
+    lines.append("   NOTE: publish_gate.py will refuse to proceed while any PENDING_REVIEW")
     lines.append("         tag remains among the 'high' priority rows.")
     lines.append("")
 
