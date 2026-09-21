@@ -1,0 +1,2 @@
+[console_scripts]
+regcrosswalk = regulatory_crosswalk.cli:main

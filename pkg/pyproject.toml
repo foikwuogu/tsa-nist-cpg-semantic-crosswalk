@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "regulatory-crosswalk"
-version = "0.1.0"
+version = "1.0.1"
 description = "Transparent semantic-similarity scoring and a human-adjudication review queue for mapping one regulatory/standards corpus onto another."
 readme = "README.md"
 requires-python = ">=3.9"

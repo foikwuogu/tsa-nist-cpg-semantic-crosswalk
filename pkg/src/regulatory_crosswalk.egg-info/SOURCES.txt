@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+src/regulatory_crosswalk/__init__.py
+src/regulatory_crosswalk/adjudicate.py
+src/regulatory_crosswalk/align.py
+src/regulatory_crosswalk/cli.py
+src/regulatory_crosswalk.egg-info/PKG-INFO
+src/regulatory_crosswalk.egg-info/SOURCES.txt
+src/regulatory_crosswalk.egg-info/dependency_links.txt
+src/regulatory_crosswalk.egg-info/entry_points.txt
+src/regulatory_crosswalk.egg-info/requires.txt
+src/regulatory_crosswalk.egg-info/top_level.txt
+tests/test_adjudicate.py
+tests/test_align.py
