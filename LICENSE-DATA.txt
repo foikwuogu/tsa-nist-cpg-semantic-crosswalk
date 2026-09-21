@@ -1,0 +1,16 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+This work (the crosswalk dataset, adjudication log, documentation, and
+manuscript in this repository) is licensed under the Creative Commons
+Attribution 4.0 International License. To view a copy of this license,
+visit https://creativecommons.org/licenses/by/4.0/
+
+Attribution should credit:
+  Ikwuogu, F.O., Mike-Ewewie, D., & Ayozie, O.M. (2026). TSA Pipeline
+  Policy-to-Control Crosswalk and Human-Adjudicated Semantic Alignment
+  Framework [Data set]. (see CITATION.cff for the full citation and DOI
+  once minted)
+
+...and, per the underlying sources' own terms, note that the source
+regulatory/standards text is drawn from U.S. Government public-domain
+works (TSA, NIST, CISA) as documented in data/raw/PROVENANCE.txt.

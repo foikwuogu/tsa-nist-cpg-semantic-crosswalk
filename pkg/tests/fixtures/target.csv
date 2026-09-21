@@ -1,0 +1,5 @@
+id,text
+T-1,Develop an incident response plan that provides a roadmap for implementing incident response capability
+T-2,Change all default manufacturer passwords before deployment
+T-3,Provide security awareness training to all personnel on an annual basis
+T-4,Maintain a current baseline configuration of the system

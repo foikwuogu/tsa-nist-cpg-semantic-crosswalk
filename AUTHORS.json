@@ -1,0 +1,28 @@
+{
+  "authors": [
+    {
+      "name": "Friday Ogochukwu Ikwuogu",
+      "orcid": "0009-0009-2222-1318",
+      "email": "Friday.ikwuogu@gmail.com",
+      "affiliation": "Independent Researcher, Odessa, Texas, USA",
+      "credit_roles": ["Conceptualization", "Methodology", "Software", "Data Curation", "Writing – Original Draft", "Writing – Review & Editing"],
+      "corresponding": true
+    },
+    {
+      "name": "David Mike-Ewewie",
+      "orcid": null,
+      "email": "mike_d63291@utpb.edu",
+      "affiliation": "Computer Science Department, University of Texas Permian Basin, Odessa, Texas, USA",
+      "credit_roles": ["Validation", "Writing – Review & Editing"],
+      "corresponding": false
+    },
+    {
+      "name": "Osorachukwu Maurice Ayozie",
+      "orcid": null,
+      "email": "ayozie_o62237@utpb.edu",
+      "affiliation": "MSc Computer Science Cybersecurity, University of Texas Permian Basin, Odessa, Texas, USA",
+      "credit_roles": ["Validation", "Data Curation"],
+      "corresponding": false
+    }
+  ]
+}

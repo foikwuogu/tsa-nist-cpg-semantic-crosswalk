@@ -1,0 +1,51 @@
+{
+  "generated_by": "code/07_stats.py",
+  "n_tsa_statements": 130,
+  "n_csf_subcategories": 106,
+  "n_sp80053_base_controls": 54,
+  "n_cpg_subgoals": 38,
+  "n_candidate_crosswalk_rows": 1170,
+  "top_k_candidates_per_pair": 3,
+  "n_adjudication_queue_rows": 149,
+  "adjudication_queue_by_priority": {
+    "medium": 66,
+    "low": 52,
+    "high": 31
+  },
+  "alignment_by_corpus": {
+    "CSF2.0": {
+      "n_tsa_statements": 130,
+      "direct": 1,
+      "partial": 11,
+      "related": 33,
+      "no_match": 85,
+      "mean_cosine_similarity": 0.0815,
+      "max_cosine_similarity": 0.3479
+    },
+    "SP800-53": {
+      "n_tsa_statements": 130,
+      "direct": 2,
+      "partial": 14,
+      "related": 42,
+      "no_match": 72,
+      "mean_cosine_similarity": 0.0955,
+      "max_cosine_similarity": 0.3852
+    },
+    "CPG1.0.1": {
+      "n_tsa_statements": 130,
+      "direct": 0,
+      "partial": 3,
+      "related": 28,
+      "no_match": 99,
+      "mean_cosine_similarity": 0.0626,
+      "max_cosine_similarity": 0.2409
+    }
+  },
+  "thresholds": {
+    "direct": 0.3,
+    "partial": 0.18,
+    "related": 0.08
+  },
+  "overall_rank1_no_match_rate": 0.6564,
+  "overall_rank1_any_candidate_rate": 0.3436
+}

@@ -1,0 +1,26 @@
+tsa_pipeline_security_guidelines.md | bytes=11118 | sha256=45eeb193c494efc546073c7445bdab9ff7266f2c3e7e57d4e904469989e8700e | source=https://www.tsa.gov/sites/default/files/pipeline_security_guidelines.pdf | accessed=2026-09-20 | license=US-Gov-public-domain | method=WebFetch-text-extraction | logged=2026-09-21T00:07:03.698998+00:00
+cisa_cpg_v1.0.1.md | bytes=5857 | sha256=c94fd84f51a24223c13878fe240fddbc2de517ca4d3461ddedb76a62473cb5df | source=https://www.cisa.gov/sites/default/files/2023-03/CISA_CPG_REPORT_v1.0.1_FINAL.pdf | accessed=2026-09-20 | license=US-Gov-public-domain | method=WebFetch-text-extraction | logged=2026-09-21T00:07:03.715546+00:00
+nist_csf2_core.md | bytes=16775 | sha256=48d54b4d8c704ccbfba13b909a012df17158ac0466035d3cfc7ae1c15462a476 | source=https://doi.org/10.6028/NIST.CSWP.29 | accessed=2026-09-20 | license=US-Gov-public-domain | method=WebFetch-text-extraction | logged=2026-09-21T00:07:03.732994+00:00
+nist_sp80053_rev5_subset.md | bytes=10450 | sha256=e4d43d6d8fbe3d78cfbde6c7d0c63b41e465096bc02e825564754b7e30927823 | source=https://github.com/usnistgov/oscal-content | accessed=2026-09-20 | license=US-Gov-public-domain | method=WebFetch-partial+curated-subset-checked-against-catalog | logged=2026-09-21T00:07:03.748581+00:00
+
+--- Post-hoc verification (2026-09-20, Friday Ogochukwu Ikwuogu) ---
+NIST CSF 2.0 core (nist_csf2_core.md): confirmed 106 unique subcategories
+  / 22 categories / 6 functions against the officially published CSF 2.0
+  structure. The prior draft note claiming "extraction returned 108" was
+  based on a mistaken assumption (108 is CSF 1.1's count); no data changed.
+NIST SP 800-53 Rev 5 subset (nist_sp80053_rev5_subset.md): all 54
+  statement strings checked against the official published catalog
+  (csrc.nist.gov/pubs/sp/800/53/r5/upd1/final). 53/54 matched closely.
+  IR-4's statement text corrected: "...containment, recovery, and user
+  response activities" -> "...containment, eradication, and recovery"
+  (base-control wording; the prior text had drifted toward an IR-4
+  enhancement phrase). Correction propagated to
+  data/processed/statements_sp80053.csv, candidate_crosswalk.csv, and
+  adjudication_log.csv (target_text field only -- cosine_similarity
+  scores were not recomputed, since the wording change is a single-clause
+  substitution unlikely to shift any bucket, and recomputation would
+  require re-running the full alignment+adjudication pipeline and
+  invalidating the completed human sign-off on the 149-row review queue).
+  Recommend a full re-run with corrected source text for the next
+  version (v0.2) if a strictly reproducible score recomputation is
+  desired.

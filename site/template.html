@@ -1,0 +1,463 @@
+<title>Alignment Console</title>
+<style>
+  :root{
+    --bg:#f5f6f8; --surface:#ffffff; --surface-2:#eef0f3; --ink:#14181f; --muted:#5a6472;
+    --border:#dfe3e8; --accent:#2f5fd6; --accent-ink:#1c3fa0; --accent-soft:#e8edfc;
+    --good:#147a4b; --good-bg:#e3f5ec; --warn:#a35b00; --warn-bg:#fbeedd;
+    --critical:#b3261e; --critical-bg:#fbe4e2;
+    --csf:#2a78d6; --sp:#eb6834; --cpg:#1baf7a;
+    --shadow: 0 1px 2px rgba(20,24,31,.06), 0 8px 24px -12px rgba(20,24,31,.12);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#10131a; --surface:#171b24; --surface-2:#1e232e; --ink:#eef1f6; --muted:#96a0b2;
+      --border:#2a3140; --accent:#7c9cf5; --accent-ink:#c4d2fb; --accent-soft:#202a45;
+      --good:#4ed393; --good-bg:#123527; --warn:#f0b429; --warn-bg:#3a2c0f;
+      --critical:#ff8177; --critical-bg:#3a1917;
+      --csf:#5598e7; --sp:#f08a5e; --cpg:#3fcf9a;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#10131a; --surface:#171b24; --surface-2:#1e232e; --ink:#eef1f6; --muted:#96a0b2;
+    --border:#2a3140; --accent:#7c9cf5; --accent-ink:#c4d2fb; --accent-soft:#202a45;
+    --good:#4ed393; --good-bg:#123527; --warn:#f0b429; --warn-bg:#3a2c0f;
+    --critical:#ff8177; --critical-bg:#3a1917;
+    --csf:#5598e7; --sp:#f08a5e; --cpg:#3fcf9a;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--ink); margin:0;
+    font-family:"IBM Plex Sans",-apple-system,Segoe UI,Roboto,sans-serif;
+    padding-inline:16px; padding-block:24px 48px;
+  }
+  .wrap{max-width:1180px;margin:0 auto}
+  h1,h2,h3{font-family:"Fraunces","IBM Plex Sans",serif; font-weight:600; text-wrap:balance; margin:0}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+
+  header.top{display:flex; flex-wrap:wrap; gap:16px 24px; align-items:flex-end; justify-content:space-between; margin-bottom:28px}
+  .titleblock h1{font-size:clamp(28px,4vw,38px); letter-spacing:-.01em}
+  .titleblock p{margin:6px 0 0; color:var(--muted); max-width:56ch; font-size:14.5px}
+  .status-badge{
+    display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600;
+    padding:5px 11px; border-radius:999px; background:var(--warn-bg); color:var(--warn);
+    border:1px solid color-mix(in srgb, var(--warn) 35%, transparent); white-space:nowrap;
+  }
+  .status-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--warn)}
+  .sourceline{color:var(--muted); font-size:12.5px; margin-top:10px}
+  .sourceline a{color:var(--accent-ink)}
+
+  .kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:24px}
+  .kpi{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px;
+    box-shadow:var(--shadow);
+  }
+  .kpi .num{font-family:"Fraunces",serif; font-size:30px; font-weight:600; font-variant-numeric:tabular-nums; line-height:1.1}
+  .kpi .label{color:var(--muted); font-size:12.5px; margin-top:4px}
+  .kpi.accent{border-color:color-mix(in srgb, var(--accent) 40%, var(--border))}
+  .kpi.accent .num{color:var(--accent-ink)}
+
+  .panels{display:grid; grid-template-columns:1.1fr 1fr; gap:16px; margin-bottom:24px}
+  @media (max-width:820px){ .panels{grid-template-columns:1fr} }
+  .panel{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 18px 8px;
+    box-shadow:var(--shadow);
+  }
+  .panel h2{font-size:16px}
+  .panel .sub{color:var(--muted); font-size:12.5px; margin:2px 0 12px}
+  .legend{display:flex; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin:8px 0 4px}
+  .legend span{display:inline-flex; align-items:center; gap:6px}
+  .swatch{width:10px;height:10px;border-radius:3px;display:inline-block}
+  canvas{width:100%; display:block}
+
+  .section-head{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; margin:8px 0 12px}
+  .section-head h2{font-size:19px}
+  .section-head .sub{color:var(--muted); font-size:13px}
+
+  .controls{
+    display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-bottom:14px;
+    background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:10px 12px;
+    box-shadow:var(--shadow);
+  }
+  .controls input[type="search"]{
+    flex:1 1 200px; min-width:160px; background:var(--surface-2); border:1px solid var(--border);
+    border-radius:8px; padding:8px 10px; color:var(--ink); font-size:13.5px;
+  }
+  .chipgroup{display:flex; gap:6px; flex-wrap:wrap}
+  .chip{
+    font-size:12.5px; padding:6px 11px; border-radius:999px; border:1px solid var(--border);
+    background:var(--surface-2); color:var(--muted); cursor:pointer; user-select:none; white-space:nowrap;
+  }
+  .chip[aria-pressed="true"]{background:var(--accent-soft); border-color:var(--accent); color:var(--accent-ink); font-weight:600}
+  .count-pill{margin-left:auto; font-size:12.5px; color:var(--muted)}
+
+  .tablewrap{
+    background:var(--surface); border:1px solid var(--border); border-radius:14px; overflow:auto;
+    box-shadow:var(--shadow); max-height:640px;
+  }
+  table{border-collapse:collapse; width:100%; font-size:13px}
+  thead th{
+    position:sticky; top:0; background:var(--surface); text-align:left; padding:10px 12px;
+    border-bottom:1px solid var(--border); color:var(--muted); font-weight:600; font-size:11.5px;
+    letter-spacing:.03em; text-transform:uppercase; cursor:pointer; white-space:nowrap;
+  }
+  thead th:hover{color:var(--ink)}
+  tbody td{padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:top}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:var(--surface-2)}
+  .stmt{max-width:280px}
+  .stmt .id{color:var(--muted); font-size:11px; display:block; margin-bottom:2px}
+  .pill{
+    display:inline-block; padding:2px 9px; border-radius:999px; font-size:11.5px; font-weight:600;
+    white-space:nowrap;
+  }
+  .pill.high{background:var(--critical-bg); color:var(--critical)}
+  .pill.medium{background:var(--warn-bg); color:var(--warn)}
+  .pill.low{background:var(--surface-2); color:var(--muted)}
+  .pill.type-direct{background:var(--good-bg); color:var(--good)}
+  .pill.type-partial{background:var(--warn-bg); color:var(--warn)}
+  .pill.type-related{background:var(--surface-2); color:var(--muted)}
+  .pill.type-nomatch{background:var(--surface-2); color:var(--muted); opacity:.7}
+  .corpus-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+  .score{font-variant-numeric:tabular-nums}
+  .verify{color:var(--muted); font-size:11.5px; font-style:italic}
+  .ai-suggest{max-width:220px}
+  .ai-changed{margin-left:6px; color:var(--warn); cursor:help; font-size:12px}
+  .ai-rationale{margin-top:4px; font-size:11px; color:var(--muted); line-height:1.4}
+  .terms{color:var(--muted); font-size:12px}
+  .empty-state{padding:32px; text-align:center; color:var(--muted); font-size:13.5px}
+
+  footer{margin-top:32px; padding-top:16px; border-top:1px solid var(--border); color:var(--muted); font-size:12.5px}
+  footer a{color:var(--accent-ink)}
+  footer .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-bottom:14px}
+  footer h3{font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink); margin-bottom:6px; font-family:"IBM Plex Sans",sans-serif; font-weight:600}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<div class="wrap">
+  <header class="top">
+    <div class="titleblock">
+      <h1>Alignment Console</h1>
+      <p>TSA Pipeline Security Guidelines scored against NIST CSF&nbsp;2.0, NIST SP&nbsp;800-53, and CISA CPG&nbsp;v1.0.1 &mdash; semantic candidates on the left, the human adjudication queue on the right.</p>
+    </div>
+    <div>
+      <span class="status-badge"><span class="dot"></span>DRAFT &mdash; pending author verification</span>
+      <div class="sourceline">Generated 2026-09-20 &middot; sources in <span class="mono">data/raw/PROVENANCE.txt</span></div>
+    </div>
+  </header>
+
+  <section class="kpis" id="kpis"></section>
+
+  <section class="panels">
+    <div class="panel">
+      <h2>Tentative alignment type by corpus</h2>
+      <p class="sub">Rank-1 candidate per TSA statement (n=130 each)</p>
+      <div class="legend">
+        <span><span class="swatch" style="background:var(--csf)"></span>NIST CSF 2.0</span>
+        <span><span class="swatch" style="background:var(--sp)"></span>NIST SP 800-53</span>
+        <span><span class="swatch" style="background:var(--cpg)"></span>CISA CPG v1.0.1</span>
+      </div>
+      <canvas id="barChart" height="230"></canvas>
+    </div>
+    <div class="panel">
+      <h2>Score distribution</h2>
+      <p class="sub">Cosine similarity, rank-1 candidate &mdash; dashed lines mark Related / Partial / Direct</p>
+      <canvas id="histChart" height="230"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div>
+        <h2>Adjudication review queue</h2>
+        <div class="sub">149 candidate matches queued for human sign-off &mdash; every <span class="mono">[VERIFY]</span> field below is empty until the author fills it in</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <input type="search" id="search" placeholder="Search statement text, IDs, or shared terms&hellip;">
+      <div class="chipgroup" id="priorityChips">
+        <button class="chip" data-priority="all" aria-pressed="true">All priority</button>
+        <button class="chip" data-priority="high" aria-pressed="false">High (31)</button>
+        <button class="chip" data-priority="medium" aria-pressed="false">Medium (66)</button>
+        <button class="chip" data-priority="low" aria-pressed="false">Low (52)</button>
+      </div>
+      <div class="chipgroup" id="corpusChips">
+        <button class="chip" data-corpus="all" aria-pressed="true">All corpora</button>
+        <button class="chip" data-corpus="CSF2.0" aria-pressed="false">CSF 2.0</button>
+        <button class="chip" data-corpus="SP800-53" aria-pressed="false">SP 800-53</button>
+        <button class="chip" data-corpus="CPG1.0.1" aria-pressed="false">CPG</button>
+      </div>
+      <span class="count-pill" id="countPill"></span>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th data-sort="review_priority">Priority</th>
+            <th data-sort="tsa_text">TSA statement</th>
+            <th data-sort="target_corpus">Target</th>
+            <th data-sort="cosine_similarity">Score</th>
+            <th data-sort="tentative_alignment_type">Tentative type</th>
+            <th>Shared terms</th>
+            <th data-sort="ai_suggested_type">AI suggestion</th>
+            <th>Adjudication</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="empty-state" id="emptyState" hidden>No rows match this filter.</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="grid">
+      <div>
+        <h3>Sources</h3>
+        TSA Pipeline Security Guidelines (2018/2021) &middot; NIST CSF 2.0 (CSWP.29, 2024) &middot;
+        NIST SP 800-53 Rev 5.2.0 base-control subset &middot; CISA CPG v1.0.1 (2023).
+        All four are U.S. Government public-domain works.
+      </div>
+      <div>
+        <h3>Method</h3>
+        TF-IDF (unigram+bigram) cosine similarity, top-3 candidates per statement.
+        Thresholds: Direct &ge; 0.30, Partial &ge; 0.18, Related &ge; 0.08. See <span class="mono">BUILD_SPEC.md</span>.
+      </div>
+      <div>
+        <h3>License &amp; citation</h3>
+        Code: MIT. Data, docs, manuscript: CC BY 4.0. See <span class="mono">CITATION.cff</span> &mdash;
+        DOI pending Zenodo deposit.
+      </div>
+    </div>
+    <div>This is a data view of a DRAFT project. Nothing here is a finished crosswalk decision until a human adjudicator fills in the review queue &mdash; see <span class="mono">docs/VERIFY_CHECKLIST.md</span>.</div>
+  </footer>
+</div>
+
+<script>
+const STATS = __STATS_JSON__;
+const QUEUE = __ADJUDICATION_JSON__;
+
+// ---------- KPI tiles ----------
+const kpis = [
+  { num: STATS.n_tsa_statements, label: "TSA statements" },
+  { num: 3, label: "target corpora" },
+  { num: STATS.n_candidate_crosswalk_rows.toLocaleString(), label: "candidate pairs scored" },
+  { num: STATS.n_adjudication_queue_rows, label: "in review queue", accent: true },
+  { num: STATS.adjudication_queue_by_priority.high, label: "high-priority (act first)", accent: true },
+];
+document.getElementById("kpis").innerHTML = kpis.map(k =>
+  `<div class="kpi${k.accent ? ' accent' : ''}"><div class="num">${k.num}</div><div class="label">${k.label}</div></div>`
+).join("");
+
+// ---------- Canvas helpers ----------
+function hiDPICanvas(canvas, cssHeight){
+  const ctx = canvas.getContext("2d");
+  const cssWidth = canvas.clientWidth || canvas.parentElement.clientWidth;
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = cssWidth * dpr;
+  canvas.height = cssHeight * dpr;
+  canvas.style.height = cssHeight + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  return { ctx, w: cssWidth, h: cssHeight };
+}
+function cssVar(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+
+// ---------- Bar chart: alignment type by corpus ----------
+function drawBarChart(){
+  const canvas = document.getElementById("barChart");
+  const { ctx, w, h } = hiDPICanvas(canvas, 230);
+  ctx.clearRect(0,0,w,h);
+
+  const corpora = ["CSF2.0","SP800-53","CPG1.0.1"];
+  const colors = { "CSF2.0": cssVar("--csf"), "SP800-53": cssVar("--sp"), "CPG1.0.1": cssVar("--cpg") };
+  const types = ["No Match","Related","Partial","Direct"];
+  const data = STATS.alignment_by_corpus;
+  const rawMax = Math.max(...corpora.map(c => Math.max(data[c].no_match, data[c].related, data[c].partial, data[c].direct)));
+  const maxVal = Math.ceil(rawMax * 1.18 / 10) * 10;
+
+  const padL = 34, padB = 26, padT = 18, padR = 6;
+  const plotW = w - padL - padR, plotH = h - padT - padB;
+  const groupW = plotW / types.length;
+  const barW = Math.min(20, groupW / (corpora.length + 1.4));
+
+  ctx.strokeStyle = cssVar("--border"); ctx.fillStyle = cssVar("--muted");
+  ctx.font = "11px IBM Plex Sans, sans-serif"; ctx.textAlign = "right"; ctx.textBaseline = "middle";
+  const ticks = 4;
+  for(let i=0;i<=ticks;i++){
+    const v = Math.round(maxVal * i/ticks);
+    const y = padT + plotH - (v/maxVal)*plotH;
+    ctx.beginPath(); ctx.moveTo(padL, y); ctx.lineTo(w-padR, y); ctx.globalAlpha=0.5; ctx.stroke(); ctx.globalAlpha=1;
+    ctx.fillText(v, padL-6, y);
+  }
+
+  types.forEach((type, ti) => {
+    const gx = padL + ti*groupW + groupW/2;
+    const key = type === "No Match" ? "no_match" : type.toLowerCase();
+    corpora.forEach((corpus, ci) => {
+      const val = data[corpus][key];
+      const bh = (val/maxVal) * plotH;
+      const bx = gx - (corpora.length*barW)/2 + ci*barW;
+      const by = padT + plotH - bh;
+      ctx.fillStyle = colors[corpus];
+      const r = 3;
+      ctx.beginPath();
+      ctx.moveTo(bx, by+bh);
+      ctx.lineTo(bx, by+r);
+      ctx.arcTo(bx, by, bx+r, by, r);
+      ctx.lineTo(bx+barW-r, by);
+      ctx.arcTo(bx+barW, by, bx+barW, by+r, r);
+      ctx.lineTo(bx+barW, by+bh);
+      ctx.closePath(); ctx.fill();
+      if(val > 0){
+        ctx.fillStyle = cssVar("--muted"); ctx.font = "10px IBM Plex Mono, monospace";
+        ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+        ctx.fillText(val, bx+barW/2, by-2);
+      }
+    });
+    ctx.fillStyle = cssVar("--ink"); ctx.font = "11.5px IBM Plex Sans, sans-serif";
+    ctx.textAlign = "center"; ctx.textBaseline = "top";
+    ctx.fillText(type, gx, h-padB+6);
+  });
+}
+
+// ---------- Histogram: score distribution ----------
+function drawHistChart(){
+  const canvas = document.getElementById("histChart");
+  const { ctx, w, h } = hiDPICanvas(canvas, 230);
+  ctx.clearRect(0,0,w,h);
+
+  const corpora = [
+    { key:"CSF2.0", color: cssVar("--csf") },
+    { key:"SP800-53", color: cssVar("--sp") },
+    { key:"CPG1.0.1", color: cssVar("--cpg") },
+  ];
+  // Reconstruct rank-1 scores per corpus from the embedded queue plus stats maxima;
+  // for a lightweight page we approximate the distribution shape with the queue's
+  // own rows (they include every Direct/Partial/Related rank-1 match, which is what
+  // matters for this chart) bucketed into 8 bins from 0 to the corpus max.
+  const byCorpus = {};
+  corpora.forEach(c => byCorpus[c.key] = []);
+  QUEUE.forEach(r => { if(byCorpus[r.target_corpus]) byCorpus[r.target_corpus].push(r.cosine_similarity); });
+
+  const bins = 8, maxScore = 0.45;
+  const padL = 30, padB = 20, padT = 8, padR = 6, gap = 14;
+  const colW = (w - padL - padR - gap*2) / 3;
+
+  corpora.forEach((c, ci) => {
+    const scores = byCorpus[c.key];
+    const counts = new Array(bins).fill(0);
+    scores.forEach(s => { const b = Math.min(bins-1, Math.floor((s/maxScore)*bins)); counts[b]++; });
+    const maxCount = Math.max(1, ...counts);
+    const x0 = padL + ci*(colW+gap);
+    const plotH = h - padT - padB;
+    const barW = colW / bins;
+    counts.forEach((cnt, bi) => {
+      const bh = (cnt/maxCount) * plotH;
+      ctx.fillStyle = c.color;
+      ctx.fillRect(x0 + bi*barW + 1, padT + plotH - bh, barW-2, bh);
+    });
+    [0.08,0.18,0.30].forEach(t => {
+      const x = x0 + (t/maxScore)*colW;
+      ctx.strokeStyle = cssVar("--muted"); ctx.setLineDash([2,2]); ctx.globalAlpha=0.6;
+      ctx.beginPath(); ctx.moveTo(x, padT); ctx.lineTo(x, padT+plotH); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha=1;
+    });
+    ctx.fillStyle = cssVar("--ink"); ctx.font = "11px IBM Plex Sans, sans-serif";
+    ctx.textAlign = "center"; ctx.textBaseline = "top";
+    ctx.fillText(c.key, x0 + colW/2, h - padB + 4);
+  });
+}
+
+drawBarChart(); drawHistChart();
+window.addEventListener("resize", () => { drawBarChart(); drawHistChart(); });
+
+// ---------- Adjudication table ----------
+let state = { search: "", priority: "all", corpus: "all", sort: null, dir: 1 };
+const corpusDot = { "CSF2.0": "var(--csf)", "SP800-53": "var(--sp)", "CPG1.0.1": "var(--cpg)" };
+const corpusLabel = { "CSF2.0": "NIST CSF 2.0", "SP800-53": "NIST SP 800-53", "CPG1.0.1": "CISA CPG" };
+
+function typeClass(t){
+  return { "Direct":"type-direct","Partial":"type-partial","Related":"type-related","No Match":"type-nomatch" }[t] || "type-nomatch";
+}
+
+function render(){
+  let rows = QUEUE.filter(r => {
+    if(state.priority !== "all" && r.review_priority !== state.priority) return false;
+    if(state.corpus !== "all" && r.target_corpus !== state.corpus) return false;
+    if(state.search){
+      const hay = (r.tsa_text+" "+r.target_text+" "+r.tsa_id+" "+r.target_id+" "+(r.shared_terms_hint||"")).toLowerCase();
+      if(!hay.includes(state.search.toLowerCase())) return false;
+    }
+    return true;
+  });
+
+  if(state.sort){
+    rows = rows.slice().sort((a,b) => {
+      let av = a[state.sort], bv = b[state.sort];
+      if(typeof av === "string") { av = av.toLowerCase(); bv = bv.toLowerCase(); }
+      if(av < bv) return -1*state.dir;
+      if(av > bv) return 1*state.dir;
+      return 0;
+    });
+  }
+
+  document.getElementById("countPill").textContent = `${rows.length} of ${QUEUE.length} rows`;
+  document.getElementById("emptyState").hidden = rows.length > 0;
+
+  document.getElementById("rows").innerHTML = rows.map(r => `
+    <tr>
+      <td><span class="pill ${r.review_priority}">${r.review_priority}</span></td>
+      <td class="stmt"><span class="id mono">${r.tsa_id} &middot; ${r.tsa_section}</span>${escapeHtml(r.tsa_text)}</td>
+      <td class="stmt">
+        <span class="id mono"><span class="corpus-dot" style="background:${corpusDot[r.target_corpus]}"></span>${corpusLabel[r.target_corpus]} &middot; ${r.target_id}</span>
+        ${escapeHtml(r.target_text)}
+      </td>
+      <td class="score mono">${r.cosine_similarity.toFixed(4)}</td>
+      <td><span class="pill ${typeClass(r.tentative_alignment_type)}">${r.tentative_alignment_type}</span></td>
+      <td class="terms">${r.shared_terms_hint ? escapeHtml(r.shared_terms_hint) : "&mdash;"}</td>
+      <td class="ai-suggest">${
+        r.ai_suggested_type
+          ? `<span class="pill ${typeClass(r.ai_suggested_type)}" title="${escapeHtml(r.ai_suggested_rationale || "")}">${escapeHtml(r.ai_suggested_type)}</span>
+             ${r.ai_suggested_type !== r.tentative_alignment_type ? '<span class="ai-changed" title="Differs from the machine\'s tentative bucket">&#9998;</span>' : ""}
+             <div class="ai-rationale">${escapeHtml(r.ai_suggested_rationale || "")}</div>`
+          : "&mdash;"
+      }</td>
+      <td class="verify">${r.adjudicated_alignment_type}</td>
+    </tr>
+  `).join("");
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+}
+
+document.getElementById("search").addEventListener("input", e => { state.search = e.target.value; render(); });
+
+document.getElementById("priorityChips").addEventListener("click", e => {
+  const btn = e.target.closest(".chip"); if(!btn) return;
+  [...document.getElementById("priorityChips").children].forEach(c => c.setAttribute("aria-pressed","false"));
+  btn.setAttribute("aria-pressed","true");
+  state.priority = btn.dataset.priority; render();
+});
+
+document.getElementById("corpusChips").addEventListener("click", e => {
+  const btn = e.target.closest(".chip"); if(!btn) return;
+  [...document.getElementById("corpusChips").children].forEach(c => c.setAttribute("aria-pressed","false"));
+  btn.setAttribute("aria-pressed","true");
+  state.corpus = btn.dataset.corpus; render();
+});
+
+document.querySelectorAll("th[data-sort]").forEach(th => {
+  th.addEventListener("click", () => {
+    const key = th.dataset.sort;
+    state.dir = (state.sort === key) ? -state.dir : 1;
+    state.sort = key;
+    render();
+  });
+});
+
+render();
+</script>

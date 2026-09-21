@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.env
+*.pem
+page-*.jpg
+*.pdf
+.DS_Store
+node_modules/

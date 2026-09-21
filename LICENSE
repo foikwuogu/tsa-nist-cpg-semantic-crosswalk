@@ -1,0 +1,16 @@
+This repository uses a dual license:
+
+- Code (everything under code/ and scripts/) is licensed under the MIT
+  License (see LICENSE-CODE.txt).
+- Data, documentation, and the manuscript (everything under data/,
+  docs/, and paper/) are licensed under Creative Commons Attribution 4.0
+  International (CC BY 4.0). See LICENSE-DATA.txt or
+  https://creativecommons.org/licenses/by/4.0/
+
+The four underlying source documents (TSA Pipeline Security Guidelines,
+NIST CSF 2.0, NIST SP 800-53 Rev 5, CISA CPG v1.0.1) are U.S. Government
+works and are in the public domain in the United States. The crosswalk,
+adjudication log, similarity scores, and manuscript are the authors'
+original derived contribution and are released under CC BY 4.0 with
+attribution to the underlying public sources as listed in
+data/raw/PROVENANCE.txt.

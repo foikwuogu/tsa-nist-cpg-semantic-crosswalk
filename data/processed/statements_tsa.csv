@@ -1,0 +1,131 @@
+id,section,text
+TSA-001,2,Develop a corporate security plan as described in Section 3
+TSA-002,2,"Ensure sufficient resources, to include trained staff and equipment"
+TSA-003,2,Ensure identified security deficiencies have appropriate financial resources allocated
+TSA-004,2,Assign a qualified primary and alternate staff member to manage the corporate security program
+TSA-005,2,"Develop and maintain a cyber/SCADA security plan, or incorporate measures in corporate plan"
+TSA-006,2,Develop and maintain security elements within corporate incident response and recovery plan
+TSA-007,2,Implement appropriate threat level protective measures upon NTAS receipt
+TSA-008,2,Notify TSA of security incidents meeting criteria in Appendix B by phone or email
+TSA-009,3.1,Identify the primary and alternate security manager responsible for executing plan
+TSA-010,3.1,Document company's security-related policies and procedures
+TSA-011,3.1,"Reference other company plans, policies and procedures such as insider threat"
+TSA-012,3.1,"Be reviewed on an annual basis, and updated as required based on findings"
+TSA-013,3.1,Be protected from unauthorized access based on company policy
+TSA-014,3.1,Be provided to TSA for review upon request
+TSA-015,4.2,"Conduct facility criticality assessments on a periodic basis, not to exceed 18 months"
+TSA-016,4.2,"Document the methodology used, and retain criticality assessment until no longer valid"
+TSA-017,4.2,Conduct an SVA for facilities determined to be critical
+TSA-018,4.2,Maintain and secure the company's list of critical facilities
+TSA-019,4.3,"Conduct an SVA on a periodic basis, not to exceed 36 months"
+TSA-020,4.3,Conduct SVA within 12 months after completion of significant enhancement
+TSA-021,4.3,Conduct SVA for newly identified or constructed critical facilities within 12 months
+TSA-022,4.3,Document findings from each assessment and retain until no longer valid
+TSA-023,4.3,Implement appropriate SVA findings in timely fashion but no later than 24 months
+TSA-024,4.3,Document assessment methodology and make available for TSA review upon request
+TSA-025,5.2,Develop a written policy and procedure to identify critical facilities
+TSA-026,6.2,Develop and implement baseline security measures at all facilities
+TSA-027,6.2,Develop and implement both baseline and enhanced security measures at critical facilities
+TSA-028,6.3,"Develop, document, and implement site-specific security measures for critical facilities"
+TSA-029,6.3,"Review site-specific security measures periodically, not to exceed 18 months"
+TSA-030,T2,Employ measures to impede unauthorized access to facilities
+TSA-031,T2,Create a security perimeter impeding unauthorized vehicles using barriers
+TSA-032,T2,Maintain fences without gaps around gates or underneath fence line
+TSA-033,T2,"Ensure clear zone several feet on either side of fence, free of obstructions"
+TSA-034,T2,Employ measures to impede unauthorized persons from gaining facility access
+TSA-035,T2,Implement procedures for controlling access to facility and restricted areas
+TSA-036,T2,Close and secure perimeter gates or entrances when not in use
+TSA-037,T2,Post 'No Trespassing' or 'Authorized Personnel Only' signs at visible intervals
+TSA-038,T2,Install and maintain gates of equivalent quality to attached barrier
+TSA-039,T2,"Establish and document key control procedures for issuance, tracking, collection"
+TSA-040,T2,Use patent keys to prevent unauthorized duplication
+TSA-041,T2,Conduct key inventories every 24 months
+TSA-042,T2,Provide sufficient illumination for recognition of intrusion into perimeter
+TSA-043,T2,"Provide critical facilities with security measures to monitor, detect unauthorized access"
+TSA-044,T2,Develop identification and badging policies and procedures for secure area personnel
+TSA-045,T2,"Ensure company or vendor identification available for examination, visibly displayed"
+TSA-046,T2,"Ensure identification cards are secure from tampering, contain photograph and name"
+TSA-047,T2,Establish policies and procedures for applicant pre-employment screening
+TSA-048,T2,Conduct pre-employment background investigations for positions with unescorted control access
+TSA-049,T2,"At minimum, investigations should verify identity, check criminal history, verify work authorization"
+TSA-050,T2,Verify contractors have background investigation policies at least as rigorous
+TSA-051,T2,"Conduct recurring background investigations, not to exceed 10 years, for security positions"
+TSA-052,T2,Develop and implement maintenance program ensuring security systems in good working order
+TSA-053,T2,"Through routine use or quarterly exam, verify proper operation of all security equipment"
+TSA-054,T2,Identify and respond to security equipment malfunctions or failures in timely manner
+TSA-055,T2,Provide equivalent protective security measures during power outages or equipment failure
+TSA-056,T2,"Integrate security risk mitigation measures during design, construction, renovation"
+TSA-057,T2,Update facility SVA within 12 months following significant modifications
+TSA-058,T2,Develop internal and external notification requirements and procedures
+TSA-059,T2,Document and periodically update contact and communication information
+TSA-060,T2,Ensure primary and alternate communication capabilities exist for reporting events
+TSA-061,T2,"Establish defined process for receiving, handling, disseminating security information"
+TSA-062,T2,"Provide security awareness briefings including incident recognition upon hiring, every 3 years"
+TSA-063,T2,Provide security training including incident response to assigned security personnel
+TSA-064,T2,Document security training and maintain records per company retention policy
+TSA-065,T2,"Conduct periodic security drills or exercises, including announced/unannounced tests"
+TSA-066,T2,Conduct or participate in annual security drill or exercise
+TSA-067,T2,Develop and implement written post-event report assessing drills and documenting corrections
+TSA-068,T2,Implement procedures for responding to security incidents or emergencies
+TSA-069,T2,Post bomb threat checklists by telephones at staffed facilities
+TSA-070,T2,Develop and document recordkeeping policies and procedures for security information
+TSA-071,T2,Retain corporate security plan until superseded or replaced
+TSA-072,T2,Retain criticality assessment documents until superseded or replaced
+TSA-073,T2,Retain training records until superseded or replaced
+TSA-074,T2,Retain security drill reports until superseded or replaced
+TSA-075,T2,Retain SVAs until superseded or replaced for critical facilities
+TSA-076,T2,Retain site-specific measures until superseded or replaced for critical facilities
+TSA-077,T2,Make security information records available to TSA upon request
+TSA-078,T2,Conduct outreach to nearby law enforcement agencies
+TSA-079,T2,Conduct outreach to neighboring businesses to coordinate security efforts
+TSA-080,T2,Conduct outreach to neighboring residences for facility security awareness
+TSA-081,7.2,Evaluate pipeline cyber assets and classify as critical or non-critical
+TSA-082,T3,Establish and document policies and procedures for configuration information assessment
+TSA-083,T3,Track changes made to pipeline cyber assets and assess patch/upgrade impacts
+TSA-084,T3,Employ mechanisms to maintain accurate inventory and detect unauthorized components
+TSA-085,T3,Develop and maintain comprehensive network/system architecture diagrams
+TSA-086,T3,"Review network connections periodically, including remote and third-party connections"
+TSA-087,T3,Develop detailed inventory for every endpoint
+TSA-088,T3,Review and assess pipeline cyber asset classification every 12 months
+TSA-089,T3,Ensure non-critical asset changes to control operations trigger critical asset designation
+TSA-090,T3,"Establish and distribute cybersecurity policies, plans, processes, supporting procedures"
+TSA-091,T3,"Review and assess cybersecurity policies regularly, not to exceed 36 months"
+TSA-092,T3,"Review and assess cybersecurity policies regularly, not to exceed 12 months for enhanced"
+TSA-093,T3,"Develop operational framework for coordination, communication, accountability"
+TSA-094,T3,Establish process to identify and evaluate vulnerabilities and compensating controls
+TSA-095,T3,Ensure threat and vulnerability information from sharing forums available to responsible personnel
+TSA-096,T3,Establish and enforce unique accounts for each individual user and administrator
+TSA-097,T3,Restrict user physical access to control systems using appropriate controls
+TSA-098,T3,"Employ stringent identity and access management practices (authenticators, passwords)"
+TSA-099,T3,"Expeditiously modify, delete, or deactivate user accounts for terminated personnel"
+TSA-100,T3,Establish and enforce access control policies for local and remote users
+TSA-101,T3,Implement controls for approving and enforcing policy for remote/third-party connections
+TSA-102,T3,Monitor physical and remote user access to critical pipeline cyber assets
+TSA-103,T3,Ensure appropriate segregation of duties in place or apply compensating controls
+TSA-104,T3,Change all default passwords upon installation or implement compensating controls
+TSA-105,T3,Employ mechanisms to support management of accounts
+TSA-106,T3,Ensure all persons requiring access receive cybersecurity awareness training
+TSA-107,T3,Provide role-based security training on recognizing indicators of system compromise
+TSA-108,T3,Establish and execute cyber-threat awareness program including practical exercises
+TSA-109,T3,Establish and implement policies and procedures for data protection measures
+TSA-110,T3,Segregate and protect pipeline cyber assets from enterprise networks using firewalls
+TSA-111,T3,Regularly validate technical controls comply with cybersecurity policies and report
+TSA-112,T3,Implement technical or procedural controls to restrict cyber assets for approved activities
+TSA-113,T3,Implement processes to generate alerts and log cybersecurity events for anomalies
+TSA-114,T3,Review logs and respond to alerts in timely manner
+TSA-115,T3,Monitor for unauthorized access or introduction of malicious code
+TSA-116,T3,Conduct cyber vulnerability assessments per risk assessment process
+TSA-117,T3,Utilize independent assessors to conduct pipeline cyber security assessments
+TSA-118,T3,Establish technical or procedural controls for cyber intrusion monitoring and detection
+TSA-119,T3,Perform regular testing of intrusion and malware detection processes and procedures
+TSA-120,T3,"Establish policies and procedures for cybersecurity incident handling, analysis, reporting"
+TSA-121,T3,Assign specific roles/tasks to individuals and teams for incident response
+TSA-122,T3,Establish and maintain cyber-incident response capability
+TSA-123,T3,Conduct cybersecurity incident response exercises periodically
+TSA-124,T3,Establish and maintain process supporting 24-hour cyber incident response
+TSA-125,T3,Report significant cyber incidents to senior management and applicable ISACs
+TSA-126,T3,Follow notification criteria in Appendix B for cyber incidents
+TSA-127,T3,Ensure response plans include mitigation measures to help prevent further impacts
+TSA-128,T3,Establish plan for recovery and reconstitution of cyber assets within business continuity timeframe
+TSA-129,T3,Review organization's cyber recovery plan annually and update as necessary
+TSA-130,AppB,Notify TSOC via phone at 866-615-5150 or email at TSOC.ST@dhs.gov for security incidents

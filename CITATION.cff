@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use this dataset, code, or manuscript, please cite it as below."
+title: "TSA Pipeline Policy-to-Control Crosswalk and Human-Adjudicated Semantic Alignment Framework"
+version: "0.1.0-draft"
+date-released: "2026-09-20"
+license: "CC-BY-4.0"
+type: dataset
+authors:
+  - family-names: "Ikwuogu"
+    given-names: "Friday Ogochukwu"
+    orcid: "https://orcid.org/0009-0009-2222-1318"
+    email: "Friday.ikwuogu@gmail.com"
+    affiliation: "Independent Researcher, Odessa, Texas, USA"
+  - family-names: "Mike-Ewewie"
+    given-names: "David"
+    email: "mike_d63291@utpb.edu"
+    affiliation: "Computer Science Department, University of Texas Permian Basin, Odessa, Texas, USA"
+  - family-names: "Ayozie"
+    given-names: "Osorachukwu Maurice"
+    email: "ayozie_o62237@utpb.edu"
+    affiliation: "MSc Computer Science Cybersecurity, University of Texas Permian Basin, Odessa, Texas, USA"
+repository-code: "PENDING — filled in by scripts/publish_github.py at push time"
+identifiers:
+  - type: doi
+    value: "PENDING — filled in by scripts/zenodo_deposit.py at deposit time"
+keywords:
+  - semantic text alignment
+  - human adjudication
+  - regulatory crosswalk
+  - cybersecurity compliance
+  - TSA pipeline security
+  - NIST Cybersecurity Framework
+  - NIST SP 800-53
+  - CISA CPG
+  - critical infrastructure

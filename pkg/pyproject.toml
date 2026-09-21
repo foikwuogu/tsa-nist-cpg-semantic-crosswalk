@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "regulatory-crosswalk"
+version = "0.1.0"
+description = "Transparent semantic-similarity scoring and a human-adjudication review queue for mapping one regulatory/standards corpus onto another."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "Friday Ogochukwu Ikwuogu", email = "Friday.ikwuogu@gmail.com" },
+]
+keywords = [
+  "regulatory crosswalk",
+  "semantic alignment",
+  "human adjudication",
+  "compliance",
+  "cybersecurity frameworks",
+  "NIST",
+  "TSA",
+  "CISA",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Intended Audience :: Legal Industry",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+  "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+  "pandas>=1.5",
+  "scikit-learn>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/foikwuogu/tsa-nist-cpg-semantic-crosswalk"
+Repository = "https://github.com/foikwuogu/tsa-nist-cpg-semantic-crosswalk"
+"Bug Tracker" = "https://github.com/foikwuogu/tsa-nist-cpg-semantic-crosswalk/issues"
+
+[project.scripts]
+regcrosswalk = "regulatory_crosswalk.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

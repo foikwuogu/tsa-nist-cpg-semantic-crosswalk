@@ -1,0 +1,58 @@
+QA REPORT — TSA-NIST-CPG Semantic Crosswalk
+============================================================
+
+1. ROW COUNTS
+   statements_tsa.csv      : 130 atomic TSA statements
+   statements_csf.csv      : 106 CSF 2.0 subcategories
+   statements_sp80053.csv  : 54 SP 800-53 base controls (subset, VERIFIED 2026-09-20)
+   statements_cpg.csv      : 38 CPG v1.0.1 sub-goals
+   candidate_crosswalk.csv : 1170 rows (130 TSA x 3 corpora x top-3)
+   adjudication_log.csv    : 149 rows queued for human review
+
+2. NULL / EMPTY CHECKS
+   tsa: 0 null cells
+   csf: 0 null cells
+   sp: 0 null cells
+   cpg: 0 null cells
+   candidate: 0 null cells
+
+3. DUPLICATE CHECKS
+   duplicate TSA statement text: 0
+   duplicate CSF subcategory ids: 0
+   duplicate SP800-53 control ids: 0
+   duplicate CPG ids: 0
+
+4. SCORE RANGE / SANITY CHECKS
+   cosine_similarity range: [0.0000, 0.3852] (expected [0,1])
+   PASS: all scores within [0,1]
+
+   Rank-1 tentative alignment type counts by target corpus:
+     CPG1.0.1  : Direct=0, No Match=99, Partial=3, Related=28
+     CSF2.0    : Direct=1, No Match=85, Partial=11, Related=33
+     SP800-53  : Direct=2, No Match=72, Partial=14, Related=42
+
+5. ADJUDICATION QUEUE COMPOSITION
+   high  : 31 rows
+   medium: 66 rows
+   low   : 52 rows
+   unresolved ([VERIFY]) decisions: 0 / 149
+   NOTE: publish_gate.py will refuse to proceed while any [VERIFY]
+         tag remains among the 'high' priority rows.
+
+6. NAMED SPOT CHECKS (author: verify these five by hand against the source PDFs)
+   [TSA-122] "Establish and maintain cyber-incident response capability" <-> [SP800-53/IR-8] "Develop an incident response plan that provides the organization with " (score=0.385, type=Direct)
+   [TSA-107] "Provide role-based security training on recognizing indicators of syst" <-> [SP800-53/AT-3] "Provide role-based security and privacy training to personnel with ass" (score=0.350, type=Direct)
+   [TSA-003] "Ensure identified security deficiencies have appropriate financial res" <-> [CSF2.0/GV.RR-03] "Adequate resources are allocated commensurate with the cybersecurity r" (score=0.182, type=Partial)
+   [TSA-058] "Develop internal and external notification requirements and procedures" <-> [CSF2.0/RS.CO-02] "Internal and external stakeholders are notified of incidents" (score=0.235, type=Partial)
+   [TSA-038] "Install and maintain gates of equivalent quality to attached barrier" <-> [CSF2.0/RC.CO-04] "Public updates on incident recovery are shared using approved methods " (score=0.000, type=No Match)
+
+7. KNOWN LIMITATIONS SURFACED BY QA (see docs/LIMITATIONS.md for full list)
+   - SP 800-53 statement text is a curated subset (54 of ~1,000 controls); all 54
+     statement strings were verified against the official published catalog on
+     2026-09-20 (53/54 matched closely, IR-4 corrected — see PROVENANCE.txt).
+   - CSF 2.0 subcategory count (106) was verified on 2026-09-20 against the
+     official CSF 2.0 structure (6 functions, 22 categories, 106 subcategories).
+   - TF-IDF cosine similarity is a lexical, not a true semantic-embedding, method;
+     see LIMITATIONS.md for why this was chosen and its known failure modes.
+   - No 'Direct' alignment type appears for CPG (max observed score below threshold
+     for that corpus) — an honest empirical finding, not a bug; discussed in the paper.
