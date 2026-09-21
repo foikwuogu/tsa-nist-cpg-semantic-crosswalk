@@ -1,6 +1,6 @@
-# Next Steps (v1.1 and beyond)
+# Next Steps (v0.2 and beyond)
 
-This v1.0.1 release establishes the framework and a real, working crosswalk
+This v0.1 release establishes the framework and a real, working crosswalk
 between TSA pipeline guidance and three federal cybersecurity frameworks.
 It is a first step, not a finished reference crosswalk. Planned follow-ups:
 
@@ -10,8 +10,8 @@ It is a first step, not a finished reference crosswalk. Planned follow-ups:
    artifact versus a genuine coverage gap. Report both scorers side by side.
 
 2. **Full SP 800-53 catalog.** Extend `statements_sp80053.csv` from the
-   current 54-control base subset to the full catalog (base controls +
-   enhancements), retaining the verification flag until each row is checked.
+   current 54-control base subset (verified verbatim as of v0.1.0) to the
+   full catalog (base controls + enhancements).
 
 3. **Second independent adjudicator + inter-rater agreement.** Have a
    second qualified reviewer adjudicate a random sample of the queue

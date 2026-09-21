@@ -1,10 +1,12 @@
 # TSA Pipeline Policy-to-Control Crosswalk & Human-Adjudicated Semantic Alignment Framework
 
-[![PyPI version](https://img.shields.io/pypi/v/regulatory-crosswalk.svg)](https://pypi.org/project/regulatory-crosswalk/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22866885.svg)](https://doi.org/10.5281/zenodo.22866885)
-
 **Status: Released v1.0.1 — author-verified 2026-09-20 (see `docs/VERIFY_CHECKLIST.md`).**
 Version: 1.0.1 · Released: 2026-09-20 · DOI: 10.5281/zenodo.22866885
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22866885.svg)](https://doi.org/10.5281/zenodo.22866885)
+[![PyPI](https://img.shields.io/pypi/v/regulatory-crosswalk.svg)](https://pypi.org/project/regulatory-crosswalk/)
+[![License: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE-CODE.txt)
+[![License: CC BY 4.0](https://img.shields.io/badge/Data%2FDocs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA.txt)
 
 ## What this is
 
@@ -52,12 +54,12 @@ PY
 ## Installable package
 
 The TF-IDF alignment scorer and adjudication-queue builder are also
-packaged as a standalone, installable library — `pkg/` (PyPI name
-`regulatory-crosswalk`) — for anyone who wants to run this same method on
-their own two corpora, not just reproduce this TSA/NIST/CPG dataset:
+packaged as a standalone, installable library — `pkg/` — for anyone who
+wants to run this same method on their own two corpora, not just reproduce
+this TSA/NIST/CPG dataset. Live on PyPI: https://pypi.org/project/regulatory-crosswalk/
 
 ```bash
-pip install regulatory-crosswalk   # once published — see docs/PUBLISH_GUIDE.md
+pip install regulatory-crosswalk
 regcrosswalk align mine.csv theirs.csv --target-name TheirFramework -o candidates.csv
 regcrosswalk adjudicate candidates.csv -o adjudication_log.csv
 ```
